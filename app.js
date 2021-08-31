@@ -11,6 +11,7 @@ const sequelize = new Sequelize(
     }
 );
 
+//iffie
 (( async() => {
     try {
     await sequelize.authenticate();
