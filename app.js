@@ -58,4 +58,17 @@ Class.belongsToMany(User, { through: "Users_Classes" })
 //iffie
 ; (async () => {
     await sequelize.sync({force: true});
+
+    let my_user = await User.create({ username: "Atiyah" })
+    let my_profile = await Profile.create({ birthday: new Date() })
+    console.log(await my_user.getProfile())
+    await my_user.setProfile(my_profile)
+    console.log(await my_user.getProfile())
+
+    let resultUser = await User.findOne({
+        where:{
+            id:1
+        }
+    })
+    console.log(await resultUser.getProfile())
 })();
